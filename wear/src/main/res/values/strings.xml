@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Periodic Table Trainer</string>
+    <string name="hello_world">Hello World!</string>
+    <string name="restart">Restart</string>
+</resources>
