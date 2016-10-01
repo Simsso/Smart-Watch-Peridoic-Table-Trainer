@@ -5,6 +5,7 @@ import android.support.wearable.activity.WearableActivity;
 import android.support.wearable.view.BoxInsetLayout;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -16,6 +17,7 @@ import java.util.Locale;
 public class MainActivity extends WearableActivity {
     ProgressBar progressBar;
     TextView atomicNumber, element, restart;
+    RelativeLayout layout;
 
     PeriodicTableTest test = new PeriodicTableTest();
 
@@ -26,6 +28,7 @@ public class MainActivity extends WearableActivity {
         setContentView(R.layout.activity_main);
         setAmbientEnabled();
 
+        layout = (RelativeLayout) findViewById(R.id.relativeLayoutMain);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         atomicNumber = (TextView) findViewById(R.id.textViewAtomicNumber);
         element = (TextView) findViewById(R.id.textViewElement);
@@ -55,6 +58,7 @@ public class MainActivity extends WearableActivity {
         Element current = test.getCurrentElement();
         atomicNumber.setText(String.valueOf(current.getAtomicNumber()));
         element.setText(current.getElement() + " (" + current.getSymbol() + ")");
+        layout.setBackgroundColor(current.getColor());
     }
 
     public void continueClicked(View view) {
